@@ -1,0 +1,5 @@
+<tr>
+  <td><%= note.content %></td>
+  <td><%= link_to 'Edit', edit_page_note_path(note.page, note) %></td>
+  <td><%= link_to 'Destroy', page_note_path(note.page, note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
