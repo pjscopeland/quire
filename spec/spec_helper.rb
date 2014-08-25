@@ -25,6 +25,7 @@ RSpec.configure do |config|
   config.filter_run_excluding :exclude
   config.run_all_when_everything_filtered = true
 
+=begin
   # Many RSpec users commonly either run the entire suite or an individual
   # file, and it's useful to allow more verbose output when running an
   # individual spec file.
@@ -74,4 +75,5 @@ RSpec.configure do |config|
     # a real object. This is generally recommended.
     mocks.verify_partial_doubles = true
   end
+=end
 end
