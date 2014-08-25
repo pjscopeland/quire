@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :pages do
-    resources :notes, except: [:index, :show]
+    resources :notes, except: [:index, :show], shallow: true
   end
 
   root 'pages#index'
