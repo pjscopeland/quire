@@ -1,0 +1,9 @@
+<div class="list-group-item">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= link_to page.title, page %>
+      <span class="badge"><%= page.notes.count %></span>
+      <%= action_buttons(page) %>
+    </div>
+  </div>
+</div>

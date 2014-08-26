@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header"><h1>Contents</h1></div>
+<div class="list-group">
+  <%= render @pages %>
+  <%= link_to 'New page', new_page_path, class: 'list-group-item' %>
+</div>

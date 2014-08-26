@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :pages do
+    resources :notes, except: [:index, :show], shallow: true do
+      member do
+        put :move_up, :move_down
+      end
+    end
+  end
+
+  root 'pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

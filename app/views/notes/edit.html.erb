@@ -1,0 +1,7 @@
+<h1>Editing note on <%= @note.page.title %></h1>
+
+<%= form_for @note, url: note_path(@note) do |f| %>
+  <%= render 'form', f: f %>
+<% end %>
+
+<%= link_to 'Back', @note.page %>
