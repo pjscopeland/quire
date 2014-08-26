@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :pages do
-    resources :notes, except: [:index, :show], shallow: true
+    resources :notes, except: [:index, :show], shallow: true do
+      member do
+        put :move_up, :move_down
+      end
+    end
   end
 
   root 'pages#index'
