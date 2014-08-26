@@ -3,13 +3,13 @@ class Note < ActiveRecord::Base
 
   validates :page_id, presence: true
 
-  def move_up
-    other = page.notes.where(priority: priority - 1).first
+  def move_up!
+    other = page.notes.where("priority < #{priority}").last
     swap_priorities_with(other)
   end
 
-  def move_down
-    other = page.notes.where(priority: priority + 1).first
+  def move_down!
+    other = page.notes.where("priority > #{priority}").first
     swap_priorities_with(other)
   end
 

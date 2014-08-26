@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, except: [:index, :new, :create]
 
   # GET /notes/new
   def new
@@ -38,6 +38,18 @@ class NotesController < ApplicationController
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def move_up
+    moved = @note.move_up!
+    flash = moved ? {notice: 'Note was successfully moved.'} : {alert: 'Note was not moved.'}
+    redirect_to @note.page, flash
+  end
+
+  def move_down
+    moved = @note.move_down!
+    flash = moved ? {notice: 'Note was successfully moved.'} : {alert: 'Note was not moved.'}
+    redirect_to @note.page, flash
   end
 
   # DELETE /notes/1
